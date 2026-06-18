@@ -1,0 +1,49 @@
+[INF] init:pmic@33 STPMIC:20 V1.1                                               
+                                                                                
+[INF] welcome to MCUboot: v2.1.3-stm32mp-r2                                     
+[INF] cpu: STM32MP257FAI Rev.Y                                                  
+[INF] board: stm32mp257f-mx                                                     
+[INF] board ID: MB1936 Var1.0 Rev.D-01                                          
+[INF] dts: stm32mp257f-my_mp2_ev1_default_m33td_timer7-mx.dts                   
+[INF] boot device: sdmmc1                                                       
+[INF] mcu sysclk: 400000000                                                     
+[INF] Loading gpt header                                                        
+                                                                                
+[INF] Starting bootloader                                                       
+[WRN] This device was provisioned with dummy keys.                              
+                                                                                
+[WRN] This device is NOT SECURE                                                 
+                                                                                
+[INF] PSA Crypto init done, sig_type: EC-P256                                   
+[INF] Primary   slot: version=0.1.0+0                                           
+[INF] Image 1 Secondary slot: Image not found                                   
+[INF] Image 1 RAM loading to 0xe060000 is succeeded.                            
+[INF] Image 1 loaded from the primary slot                                      
+[INF] BL2: image 1, enable DDR-FW                                               
+[INF] Primary   slot: version=2.1.0+0                                           
+[INF] Image 0 Secondary slot: Image not found                                   
+[INF] Image 0 RAM loading to 0x80000000 is succeeded.                           
+[INF] Image 0 loaded from the primary slot                                      
+[INF] Bootloader chainload address offset: 0x104400                             
+[INF] Jumping to the first image slot                                           
+[INF] init:pmic@33 STPMIC:20 V1.1                                               
+[INF] welcome to TF-M: v2.1.3-stm32mp-r2                                        
+[INF] board: stm32mp257f-mx                                                     
+[INF] dts: stm32mp257f-my_mp2_ev1_default_m33td_timer7-mx.dts                   
+Booting TF-M v2.1.3                                                             
+[WAR] This device was provisioned with dummy keys.                              
+[WAR] This device is NOT SECURE                                                 
+[Sec Thread] Secure image initializing!                                         
+INFO: low power firmware "v1.0.0"                                               
+[    0.000000] SCP-firmware v2.13.0-stm32mp-r3                                  
+[    0.000000]                                                                  
+[    0.000000] [FWK] Module initialization complete!                            
+[INF][Crypto] Init HW accelerator...                                            
+[INF][Crypto] Init HW accelerator... complete.                                  
+[NS] [INF] Non-Secure system starting...                                        
+[NS] [INF] STM32Cube FW version: v1.3.0-rc0                                     
+=======my cubemx timer 7 non secure app[NS] [INF] [WdgMonitor] watchdog timeouts
+[NS] [INF] [RemoteProc] starting copro cpu@0... (pending)                       
+[NS] [INF] [RemoteProc] copro cpu@0 started.                                    
+
+
