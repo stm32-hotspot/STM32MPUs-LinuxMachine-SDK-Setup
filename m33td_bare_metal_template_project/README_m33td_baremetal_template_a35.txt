@@ -24,12 +24,12 @@ go to folder stm32mpu_install_build_scripts/install_scripts/
 	source install_cubdeide.sh
 
 
-#install cubemp2 bare metal (under /home/<user>/STM32Cube/Repository/STM32Cube_FW_MP2_V1.4.0.rc6/)
+#install cubemp2 bare metal (under /home/<user>/STM32Cube/Repository/STM32Cube_FW_MP2_V1.4.0.rc9/)
 
 	source install_cube_mp2_bm.sh
 
 
-#install cubemp2 fm (under /home/<user>/STM32Cube/Repository/STM32Cube_FW_MP2_V1.4.0.rc6/Middleware/Third_Party/)
+#install cubemp2 fm (under /home/<user>/STM32Cube/Repository/STM32Cube_FW_MP2_V1.4.0.rc9/Middleware/Third_Party/)
 
 	source install_cube_mp2_tfm_bm.sh
 
@@ -48,7 +48,7 @@ Build the projects with STM32CubeIde
 
 ###build ca35-fw - "Template_CA35_Secure" Project  => Template_CA35_Secure.bin 
 -Open from filesystem the "Template_CA35_Secure" project
-/home/osboxes/STM32Cube/Repository/STM32Cube_FW_MP2_V1.4.0.rc6/Projects/STM32MP215F-DK/Templates/Template_CA35_Secure/STM32CubeIDE
+/home/osboxes/STM32Cube/Repository/STM32Cube_FW_MP2_V1.4.0.rc9/Projects/STM32MP215F-DK/Templates/Template_CA35_Secure/STM32CubeIDE
 -right click on Template_CA35_Secure project
 select build project
 
@@ -61,7 +61,7 @@ select build project
 ##build TF-M Secure and sign: tfm and bl2/mcuboot => bl2.stm32, ddr_phy_signed.bin, ca35_fw_signed.bin from Template_CA35_Secure.bin
 
 -Open from filesystem the "Template_StarterApp_M33TD" project
-/home/osboxes/STM32Cube/Repository/STM32Cube_FW_MP2_V1.4.0.rc6/Projects/STM32MP215F-DK/Templates/Template_StarterApp_M33TD/STM32CubeIDE
+/home/osboxes/STM32Cube/Repository/STM32Cube_FW_MP2_V1.4.0.rc9/Projects/STM32MP215F-DK/Templates/Template_StarterApp_M33TD/STM32CubeIDE
 
 
 -patch .cproject of Template_StarterApp_M33TD_CM33_trusted-firmware-m (Properties > C/C++ Build > Cmake Settings -> Other Option field)
@@ -107,7 +107,7 @@ b0-b4 = 0000
 
 -reset the board and enable in host PC the ROM code DFU usb device.
 
-cd /home/osboxes/STM32Cube/Repository/STM32Cube_FW_MP2_V1.4.0.rc6/Projects/STM32MP215F-DK/External_Loader/Custom_Binaries/SD_Ext_Loader/aarch32/
+cd /home/osboxes/STM32Cube/Repository/STM32Cube_FW_MP2_V1.4.0.rc9/Projects/STM32MP215F-DK/External_Loader/Custom_Binaries/SD_Ext_Loader/aarch32/
 STM32_Programmer_CLI -c port=usb1 -w ./FlashLayout_sdcard_stm32mp215f-dk-cm33tdcid-BM.tsv
 
 -----
@@ -164,7 +164,7 @@ int wait = 1;
   while (wait){};
 
 Disable Optimization 
--right click on "Template_CA35_Secure", go in "C/C++ Build" -> "Settings" -> "MCU GCC Compiler" -> "Optimization"
+-right click on "Template_CA35_Secure", go in "C/C++ Build" -> "Settings" -> "MCU GCC Compiler" -> "Optimization" (!not debug level in "...-> Debugging"!)
 and change "Optimization Level" to "-None (-O0)"
 -Apply and Close
 
@@ -181,7 +181,7 @@ Update the board
 -set b0-b4 = 0000
 -reset the board and enable in host PC the ROM code DFU usb device.
 
--cd /home/osboxes/STM32Cube/Repository/STM32Cube_FW_MP2_V1.4.0.rc6/Projects/STM32MP215F-DK/External_Loader/Custom_Binaries/SD_Ext_Loader/aarch32/
+-cd /home/osboxes/STM32Cube/Repository/STM32Cube_FW_MP2_V1.4.0.rc9/Projects/STM32MP215F-DK/External_Loader/Custom_Binaries/SD_Ext_Loader/aarch32/
 STM32_Programmer_CLI -c port=usb1 -w ./FlashLayout_sdcard_stm32mp215f-dk-cm33tdcid-BM.tsv
 
 #Create debug configuration
@@ -194,6 +194,7 @@ Double click STM32 C/C++ Application and create debug configuration:
 • Disable in Runtime Options the Resume checkbox.
 • Select the Load Image and Symbols element click Edit and disable Download.
 And click on Apply.
+Disconnect STLINK of M33, because CubeIDE lost with 2 STLINK 
 Then on Debug
 You should be in the debug loop in STM32CubeMP2-1.4.0.rc6/Projects/STM32MP215F-DK/Templates/Template_CA35_Secure/CA35/Secure/Src/main.c
 
@@ -207,14 +208,14 @@ go to folder stm32mpu_install_build_scripts/m33td_bare_metal_template_project
 
 #Compile External_Mem_Loader=> External_Mem_Loader_A35.bin
 -Open from filesystem 
-/home/osboxes/STM32Cube/Repository/STM32Cube_FW_MP2_V1.4.0.rc6/Projects/STM32MP215F-DK/External_Loader/External_Mem_Loader/STM32CubeIDE
+/home/osboxes/STM32Cube/Repository/STM32Cube_FW_MP2_V1.4.0.rc9/Projects/STM32MP215F-DK/External_Loader/External_Mem_Loader/STM32CubeIDE
 right click on External_Mem_Loader_A35
 click on ‘Debug_aarch32’ configuration
 select build project
 
 #compile SD_Ext_Loader=> SD_Ext_Loader_A35.bin
 -Open from filesystem 
-/home/osboxes/STM32Cube/Repository/STM32Cube_FW_MP2_V1.4.0.rc6/Projects/STM32MP215F-DK/External_Loader/SD_Ext_Loader/STM32CubeIDE
+/home/osboxes/STM32Cube/Repository/STM32Cube_FW_MP2_V1.4.0.rc9/Projects/STM32MP215F-DK/External_Loader/SD_Ext_Loader/STM32CubeIDE
 right click on SD_Ext_Loader_A35
 click on ‘Debug_aarch32’ configuration
 select build project
@@ -301,12 +302,12 @@ A35 log
 
 ----------------------------------------------------------------------------
 Code of M33 Starter App NS, the user app FREERTOS task blinks the orange led
-.../Repository/STM32Cube_FW_MP2_V1.4.0.rc6/Utilities/M33TD_NSAppCore/App/Src/userapp_task.c
+.../Repository/STM32Cube_FW_MP2_V1.4.0.rc9/Utilities/M33TD_NSAppCore/App/Src/userapp_task.c
 ----------------------------------------------------------------------------
 
 ----------------------------------------------------------------------------
 Code of A35 Secure to blink the green led
-../Repository/STM32Cube_FW_MP2_V1.4.0.rc6/Projects/STM32MP215F-DK/Templates/Template_CA35_Secure/CA35/Secure/Src/main.c
+../Repository/STM32Cube_FW_MP2_V1.4.0.rc9/Projects/STM32MP215F-DK/Templates/Template_CA35_Secure/CA35/Secure/Src/main.c
 
 
 

@@ -12,23 +12,22 @@ cd sdk-infos-1.1-r0
 2/copy from sdk-infos-1.1-r0/examples/ folder the needed ST board script and rename it with the DT name
 (One script by DT : sdk_compilation_stm32mp<1|2>_<DT name>.example.sh)
 
-here stm32MP2-EV1 board with the DT in source codes (stm32mp257f-ev1.dts) 
+here stm32MP2-EV1 board with the DT in source codes -stm32mp257f-ev1.dts 
 
 cd ..
-cp sdk-infos-1.1-r0/examples/sdk_compilation_stm32mp2_
-stm32mp257f-ev1.example sdk_compilation_stm32mp2_stm32mp257f-ev1.example.sh
+cp sdk-infos-1.1-r0/examples/sdk_compilation_stm32mp2_stm32mp257f-ev1.example sdk_compilation_stm32mp2_stm32mp257f-ev1.sh
 
 ----------------------------
-3/ configure sdk_compilation_stm32mp2_stm32mp257f-ev1.example.sh file
+3/ configure sdk_compilation_stm32mp2_stm32mp257f-ev1.sh file
 ----------------------------
 configure sdk path
 sdk_absolute_path=/local/OSTL-v6.2.0/Developer-Package/SDK_MP2_x86_64
  
-configure DT (ext dt, or source dt)
+configure DT (name of the .dts - ext dt, or source dt)
 your_board_name="stm32mp257f-ev1"
  
 Configure storage
-your_storage_boot_scheme_cortex_a="optee-sdcard
+your_storage_boot_scheme_cortex_a="optee-sdcard"
  
 configure external dt path - let "externaldt_path=" if dt is embeded in sources files, ie not in external dt
 externaldt_path=
@@ -41,7 +40,7 @@ to build bsp components, linux kernel
  ./sdk_compilation_stm32mp2_stm32mp257f-ev1_example.sh extract (dezip&patch of all the components)
  ./sdk_compilation_stm32mp2_stm32mp257f-ev1_example.sh compile-for-fip (compile boot chain)
  ./sdk_compilation_stm32mp2_stm32mp257f-ev1_example.sh deploy-for-fip (create fip)
- ./sdk_compilation_stm32mp2_stm32mp257f-ev1_example.sh linux-stm32mp (compile linux kernel)
+ ./sdk_compilation_stm32mp2_stm32mp257f-ev1_example.sh linux-stm32mp (compile linux kernel&modules)
 
 ./sdk_compilation_stm32mp2_stm32mp257f-ev1_example.sh cleanall (remove all the components, to restart from scratch)
 
@@ -51,25 +50,28 @@ linux kernel build has some options for linux-stm32mp (see help)
          -images
          -modules
 		 
-sudo ./sdk_compilation_stm32mp2_stm32mp257f-ev1_example.sh linux-stm32mp images
-sudo ./sdk_compilation_stm32mp2_stm32mp257f-ev1_example.sh linux-stm32mp dtb
+./sdk_compilation_stm32mp2_stm32mp257f-ev1_example.sh linux-stm32mp images
+./sdk_compilation_stm32mp2_stm32mp257f-ev1_example.sh linux-stm32mp dtb
 
 each component can be compiled separatly (see help)
+
+In each component you can create a local git repo for traking (after "sdk_compilation_...sh extract" is done) 
+git init . && git add . && git commit -m "intalled source (with patchs)"
 
 ----------------------------
 example for stm32mp135 dk board with EXTERNAL DT stm32mp135d-dk-ostl.dts
 ----------------------------
 cd ..
-cp sdk-infos-1.1-r0/examples/sdk_compilation_stm32mp1_stm32mp135f-dk.example sdk_compilation_stm32mp2_stm32mp135f-dk-ostl.example.sh
+cp sdk-infos-1.1-r0/examples/sdk_compilation_stm32mp1_stm32mp135f-dk.example sdk_compilation_stm32mp2_stm32mp135f-dk-ostl.sh
  
 configure sdk path
 sdk_absolute_path=/local/OSTL-v6.2.0/Developer-Package/SDK_MP1_x86_64
  
-configure DT (ext dt, or source dt)
+configure DT (name of the .dts - ext dt, or source dt )
 your_board_name="stm32mp135f-dk-ostl"
  
 Configure storage
-your_storage_boot_scheme_cortex_a="optee-sdcard
+your_storage_boot_scheme_cortex_a="optee-sdcard"
  
 configure external dt path
-externaldt_path=/local/OSTL-v6.2.0/Developer-Package/stm32mp-openstlinux-6.6-yocto-scarthgap-mpu-v26.02.18/sources/ostl-linux/external-dt-v6.0-stm32mp-r3-r0/external-dt-v6.0-stm32mp-r3
+externaldt_path=/local/OSTL-v6.2.1/Developer-Package/stm32mp-openstlinux-6.6-yocto-scarthgap-mpu-v26.06.10/sources/ostl-linux/external-dt-v6.0-stm32mp-r3.1-r0/external-dt-v6.0-stm32mp-r3.1
