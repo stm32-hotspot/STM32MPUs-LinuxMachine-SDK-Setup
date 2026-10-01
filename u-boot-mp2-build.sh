@@ -2,7 +2,7 @@
 
 export INSTALL_PACKAGES_MP2=1
 export INSTALL_PACKAGES_U_BOOT_GIT=0
-export INSTALL_PACKAGES_U_BOOT_SRC=0
+export INSTALL_PACKAGES_U_BOOT_SRC=1
 export CLEAN_PACKAGES_U_BOOT_SRC=0
 export BUILD_PACKAGES_U_BOOT_SRC=1
 export CLEAN_PACKAGES_U_BOOT_GIT=0
@@ -11,7 +11,8 @@ export BUILD_PACKAGES_U_BOOT_GIT=0
 #export OUTPUT_FILE:=/tmp/my_output.txt
 export OUTPUT_FILE=/dev/stdout
 
-export U_BOOT_CMD_LINE='FIP_CONFIG=optee-sdcard DEVICETREE=stm32mp257f-ev1 UBOOT_DEVICETREE_stm32mp25_defconfig=stm32mp257f-ev1' 
-#export U_BOOT_CMD_LINE='UBOOT_CONFIG=optee UBOOT_DEFCONFIG=stm32mp25_defconfig DEVICETREE=stm32mp257f-ev1'
+: ${BOARD_NAME:=stm32mp257f-dk} 
+export U_BOOT_CMD_LINE="FIP_CONFIG=optee-sdcard DEVICETREE=$BOARD_NAME UBOOT_DEVICETREE_stm32mp25_defconfig=$BOARD_NAME" 
+#export U_BOOT_CMD_LINE='UBOOT_CONFIG=optee UBOOT_DEFCONFIG=stm32mp25_defconfig DEVICETREE=$BOARD_NAME'
 
-./install_VM_OpenSTLinux_v5_1.sh
+./install_OpenSTLinux_release.sh

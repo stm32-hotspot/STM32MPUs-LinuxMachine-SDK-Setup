@@ -71,8 +71,8 @@ echo "cp ${SHARED_DIR}/${OSTL_PACKAGES_MP1_SDK_x86_64} ."
 ${INSTALL_VM_VERBOSE_ONLY}
 tar xvf ${OSTL_PACKAGES_MP1_SDK_x86_64} > ${OUTPUT_FILE}
 cd stm32${INSTALL_MPU}-${OSTL_TAG}/sdk
-chmod +x st-image-weston-openstlinux-weston-stm32${INSTALL_MPU}-${OSTL_TOOL_CHAIN_x86_64_SETUP}
-./st-image-weston-openstlinux-weston-stm32${INSTALL_MPU}-${OSTL_TOOL_CHAIN_x86_64_SETUP} -d $INSTALL_DIR/Developer-Package/SDK_MP1_x86_64
+chmod +x st-image-weston-openstlinux-weston-stm32${INSTALL_MPU}.${OSTL_TOOL_CHAIN_x86_64_SETUP}
+./st-image-weston-openstlinux-weston-stm32${INSTALL_MPU}.${OSTL_TOOL_CHAIN_x86_64_SETUP} -d $INSTALL_DIR/Developer-Package/SDK_MP1_x86_64
 
 fi
 
@@ -89,9 +89,9 @@ echo "cp ${SHARED_DIR}/${OSTL_PACKAGES_MP2_SDK_x86_64} ."
 ${INSTALL_VM_VERBOSE_ONLY}
 tar xvf ${OSTL_PACKAGES_MP2_SDK_x86_64} > ${OUTPUT_FILE}
 cd stm32${INSTALL_MPU}-${OSTL_TAG}/sdk
-chmod +x st-image-weston-openstlinux-weston-stm32${INSTALL_MPU}-${OSTL_TOOL_CHAIN_x86_64_SETUP}
-./st-image-weston-openstlinux-weston-stm32${INSTALL_MPU}-${OSTL_TOOL_CHAIN_x86_64_SETUP} -d $INSTALL_DIR/Developer-Package/SDK_MP2_x86_64
-echo "./st-image-weston-openstlinux-weston-stm32${INSTALL_MPU}-${OSTL_TOOL_CHAIN_x86_64_SETUP} -d $INSTALL_DIR/Developer-Package/SDK_MP2_x86_64"
+chmod +x st-image-weston-openstlinux-weston-stm32${INSTALL_MPU}.${OSTL_TOOL_CHAIN_x86_64_SETUP}
+./st-image-weston-openstlinux-weston-stm32${INSTALL_MPU}.${OSTL_TOOL_CHAIN_x86_64_SETUP} -d $INSTALL_DIR/Developer-Package/SDK_MP2_x86_64
+echo "./st-image-weston-openstlinux-weston-stm32${INSTALL_MPU}.${OSTL_TOOL_CHAIN_x86_64_SETUP} -d $INSTALL_DIR/Developer-Package/SDK_MP2_x86_64"
 
 fi
 
@@ -111,9 +111,9 @@ echo "cp ${SHARED_DIR}/${OSTL_PACKAGES_MP1_SDK_aarch64} ."
 ${INSTALL_VM_VERBOSE_ONLY}
 tar xvf ${OSTL_PACKAGES_MP1_SDK_aarch64} > ${OUTPUT_FILE}
 cd stm32${INSTALL_MPU}-${OSTL_TAG}/sdk
-chmod +x st-image-weston-openstlinux-weston-stm32${INSTALL_MPU}-${OSTL_TOOL_CHAIN_aarch64_SETUP}
-./st-image-weston-openstlinux-weston-stm32${INSTALL_MPU}-${OSTL_TOOL_CHAIN_aarch64_SETUP} -d $INSTALL_DIR/Developer-Package/SDK_MP1_aarch64
-echo "./st-image-weston-openstlinux-weston-stm32${INSTALL_MPU}-${OSTL_TOOL_CHAIN_aarch64_SETUP} -d $INSTALL_DIR/Developer-Package/SDK_MP1_aarch64"
+chmod +x st-image-weston-openstlinux-weston-stm32${INSTALL_MPU}.${OSTL_TOOL_CHAIN_aarch64_SETUP}
+./st-image-weston-openstlinux-weston-stm32${INSTALL_MPU}.${OSTL_TOOL_CHAIN_aarch64_SETUP} -d $INSTALL_DIR/Developer-Package/SDK_MP1_aarch64
+echo "./st-image-weston-openstlinux-weston-stm32${INSTALL_MPU}.${OSTL_TOOL_CHAIN_aarch64_SETUP} -d $INSTALL_DIR/Developer-Package/SDK_MP1_aarch64"
 fi
 
 if [[(${INSTALL_PACKAGES_MP2_SDK_aarch64} -eq 1)]];
@@ -129,9 +129,9 @@ echo "cp ${SHARED_DIR}/${OSTL_PACKAGES_MP2_SDK_aarch64} ."
 ${INSTALL_VM_VERBOSE_ONLY} 
 tar xvf ${OSTL_PACKAGES_MP2_SDK_aarch64} > ${OUTPUT_FILE}
 cd stm32${INSTALL_MPU}-${OSTL_TAG}/sdk
-chmod +x st-image-weston-openstlinux-weston-stm32${INSTALL_MPU}-${OSTL_TOOL_CHAIN_aarch64_SETUP}
-./st-image-weston-openstlinux-weston-stm32${INSTALL_MPU}-${OSTL_TOOL_CHAIN_aarch64_SETUP} -d $INSTALL_DIR/Developer-Package/SDK_MP2_aarch64
-echo "./st-image-weston-openstlinux-weston-stm32${INSTALL_MPU}-${OSTL_TOOL_CHAIN_aarch64_SETUP} -d $INSTALL_DIR/Developer-Package/SDK_MP2_aarch64"
+chmod +x st-image-weston-openstlinux-weston-stm32${INSTALL_MPU}.${OSTL_TOOL_CHAIN_aarch64_SETUP}
+./st-image-weston-openstlinux-weston-stm32${INSTALL_MPU}.${OSTL_TOOL_CHAIN_aarch64_SETUP} -d $INSTALL_DIR/Developer-Package/SDK_MP2_aarch64
+echo "./st-image-weston-openstlinux-weston-stm32${INSTALL_MPU}.${OSTL_TOOL_CHAIN_aarch64_SETUP} -d $INSTALL_DIR/Developer-Package/SDK_MP2_aarch64"
 fi
 
 

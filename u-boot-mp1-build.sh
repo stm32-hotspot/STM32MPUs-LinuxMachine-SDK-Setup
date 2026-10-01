@@ -1,0 +1,20 @@
+#!/bin/bash
+
+export INSTALL_PACKAGES_MP1=1
+export INSTALL_PACKAGES_U_BOOT_GIT=0
+export INSTALL_PACKAGES_U_BOOT_SRC=1
+export CLEAN_PACKAGES_U_BOOT_SRC=0
+export BUILD_PACKAGES_U_BOOT_SRC=1
+export CLEAN_PACKAGES_U_BOOT_GIT=0
+export BUILD_PACKAGES_U_BOOT_GIT=0
+#export INSTALL_VM_VERBOSE_ONLY='set -n'
+#export OUTPUT_FILE:=/tmp/my_output.txt
+export OUTPUT_FILE=/dev/stdout
+
+: ${BOARD_NAME:=stm32mp157c-dk2} 
+: ${MP1_NAME:=stm32mp15} 
+
+export U_BOOT_CMD_LINE="FIP_CONFIG=optee-sdcard UBOOT_CONFIG=optee UBOOT_DEFCONFIG=${MP1_NAME}_defconfig DEVICETREE=${BOARD_NAME}" 
+#export U_BOOT_CMD_LINE='UBOOT_CONFIG=optee UBOOT_DEFCONFIG=$MP1_NAME_defconfig DEVICETREE=$BOARD_NAME'
+
+./install_OpenSTLinux_release.sh

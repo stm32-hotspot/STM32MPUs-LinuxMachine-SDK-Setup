@@ -27,7 +27,7 @@ export OUTPUT_FILE:=/dev/stdout
 export LINUX_MP1_CMD_LINE="ARCH=arm uImage vmlinux dtbs LOADADDR=0xC2000040"
 export LINUX_MP2_CMD_LINE="ARCH=arm64 Image.gz  vmlinux dtbs LOADADDR=0xC2000040  KBUILD_EXTDTS=${EXTDT_DIRECTORY}/linux"
 
-./install_VM_OpenSTLinux_v5_1.sh
+./install_OpenSTLinux_release.sh
 
 echo "------------------------------------------------------------" 
 echo " you can configure variables in this script for kernel build"

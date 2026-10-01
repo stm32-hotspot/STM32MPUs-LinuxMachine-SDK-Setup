@@ -36,14 +36,14 @@ if [[(${INSTALL_MP1_BOARD} -eq 1)]];
 then
 export CLEAN_PACKAGES_FIP_MP1=1
 fi
-./install_VM_OpenSTLinux_v5_1.sh
+./install_OpenSTLinux_release.sh
 export CLEAN_PACKAGES_FIP_MP1=0
 export CLEAN_PACKAGES_FIP_MP2=0
 fi
 ####Copy default FIP artifact
 ####NOT NEEDED
 ###export INSTALL_PACKAGES_FIP_ARTIFACT_CP=0
-###./install_VM_OpenSTLinux_v5_1.sh
+###./install_OpenSTLinux_release.sh
 ###export INSTALL_PACKAGES_FIP_ARTIFACT_CP=0
 
 ####Install all bsp components first time with no parameter
@@ -56,7 +56,7 @@ then
 if [[(${INSTALL_MP2_BOARD} -eq 1)]];
 then
 export INSTALL_PACKAGES_MP2_EXTERNAL_DT=1
-./install_VM_OpenSTLinux_v5_1.sh
+./install_OpenSTLinux_release.sh
 export INSTALL_PACKAGES_MP2_EXTERNAL_DT=0
 fi
 
@@ -65,23 +65,23 @@ if [[(${INSTALL_MP2_BOARD} -eq 1)]];
 then
 
 export INSTALL_PACKAGE_MP2_FWDDR=1
-./install_VM_OpenSTLinux_v5_1.sh
+./install_OpenSTLinux_release.sh
 export INSTALL_PACKAGE_MP2_FWDDR=0
 fi
 
 #re-install tf-a src
 export INSTALL_PACKAGES_T_FA_SRC=1
-./install_VM_OpenSTLinux_v5_1.sh
+./install_OpenSTLinux_release.sh
 export INSTALL_PACKAGES_T_FA_SRC=0
 
 #re-install u-boot src
 export INSTALL_PACKAGES_U_BOOT_SRC=1
-./install_VM_OpenSTLinux_v5_1.sh
+./install_OpenSTLinux_release.sh
 export INSTALL_PACKAGES_U_BOOT_SRC=0
 
 #re-install optee src
 export INSTALL_PACKAGES_OPTEE_SRC=1
-./install_VM_OpenSTLinux_v5_1.sh
+./install_OpenSTLinux_release.sh
 export INSTALL_PACKAGES_OPTEE_SRC=0
 
 fi
@@ -105,7 +105,7 @@ fi
 
 if [[(${BUILD_PACKAGES_FIP_FROM_VM_INSTALL} -eq 1)]];
 then
-./install_VM_OpenSTLinux_v5_1.sh
+./install_OpenSTLinux_release.sh
 fi
 
 ####Build then all bsp components second time with command line parameters for the board
@@ -123,6 +123,12 @@ then
 ./optee-mp2-build.sh
 fi
 
+if [[(${INSTALL_MP1_BOARD} -eq 1)]];
+then
+./tf-a-mp1-build.sh
+./u-boot-mp1-build.sh
+./optee-mp1-build.sh
+fi
 fi
 
 

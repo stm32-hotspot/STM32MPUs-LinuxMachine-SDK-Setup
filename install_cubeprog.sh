@@ -11,4 +11,4 @@ echo "Modify INSTALL_VM_VERBOSE_ONLY to display only the commands without execut
 
 echo "===================================================================================" 
 
-./install_VM_OpenSTLinux_v5_1.sh
+./install_OpenSTLinux_release.sh

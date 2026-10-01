@@ -1,10 +1,13 @@
 #!/bin/bash
 
 export INSTALL_MP1_BOARD=1
-export CLEAN_BSP_PACKAGES_FOR_FIP=1
+export CLEAN_BSP_PACKAGES_FOR_FIP=0
 export INSTALL_BSP_PACKAGES_FOR_FIP=1
 export BUILD_PACKAGES_FIP_FROM_VM_INSTALL=1
 export BUILD_PACKAGES_FIP_FROM_SCRIPTS=0
+
+export BOARD_NAME:=stm32mp157c-dk2
+export MP1_NAME:=stm32mp15 
 
 ./fip_board_build.sh
 
