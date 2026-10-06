@@ -74,7 +74,7 @@ On the Linux host PC, go to the directory that is shared with the VM or WSL2 env
 
 
 
-1. Install the Debian packages for the tools (The package list is available in the article https://wiki.st.com/stm32mpu/wiki/PC\_prerequisites).
+1. Install the Debian packages for the tools (The package list is available in the article https://wiki.st.com/stm32mpu/wiki/PC_prerequisites).
 *source step1-vm\_apt\_get\_install.sh*
 2. Create a directory tree
 *Edit* the root directory of the tree in configure\_install\_OpenSTLinux\_release.sh
@@ -109,7 +109,7 @@ Install the DDR firmware utility. *source install\_ddr\_fw\_utility.sh*
 
 
 
-To build components in the developer package, use the SDK information in [README\_build\_with\_sdk\_info.txt](https://github.com/stm32-hotspot/STM32MPUs-LinuxMachine-SDK-Setup/README_build_with_sdk_info.txt) It allow to rebuild device tree, the different boot chain binaries and the Linux kernel.
+To build components in the developer package, use the SDK information in [README\_build\_with\_sdk\_info.txt](README_build_with_sdk_info.txt) It allow to rebuild device tree, the different boot chain binaries and the Linux kernel.
 
 
 
@@ -123,5 +123,5 @@ Use an Ubuntu 22.04 or 24.04 (64-bit) Linux machine. The machine can be a native
 
 
 
-The supported Ubuntu version is listed at https://wiki.st.com/stm32mpu/wiki/PC\_prerequisites#Virtual\_machine\_system.
+The supported Ubuntu version is listed at https://wiki.st.com/stm32mpu/wiki/PC_prerequisites#Virtual_machine_system.
 
