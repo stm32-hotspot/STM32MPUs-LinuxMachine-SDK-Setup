@@ -192,6 +192,10 @@ fi
 
 echo "unzip ${CUBEMP2_PACKAGE_NAME}"
 unzip ${CUBEMP2_PACKAGE_NAME}
+
+echo "mv  STM32Cube_FW_MP2_V${CUBEMP2_VERSION_BASE}  STM32Cube_FW_MP2_V${CUBEMP2_VERSION}"
+mv  STM32Cube_FW_MP2_V${CUBEMP2_VERSION_BASE}  STM32Cube_FW_MP2_V${CUBEMP2_VERSION}
+
 fi
 
 #install STM32 CubeMP2 bare metal
@@ -243,6 +247,30 @@ git checkout ${CUBEMP2_TFM_VERSION}
 
 fi
 
+#install tf-m in STM32 CubeMP2 or in STM32 CubeM2 Bare metal
+if [[(${INSTALL_CUBEMP2_TFM_EXT_DT} -eq 1)]];
+then
+echo "cd ${CUBEMP2_TFM_EXT_DT_DIRECTORY_NAME}"
+cd ${CUBEMP2_TFM_EXT_DT_DIRECTORY_NAME}
+
+#archive previous package
+if [[(-d dt-stm32mp)]];
+then
+tfm_ext_dt_install_date=$(date '+%d_%m_%Y-%H_%M_%S');
+echo "tar cvf dt-stm32mp_$tfm_ext_dt_install_date.tar dt-stm32mp "
+tar cvf dt-stm32mp_$tfm_ext_dt_install_date.tar dt-stm32mp
+echo "rm -rf trusted-firmware-m"
+rm -rf dt-stm32mp
+fi
+
+echo "git clone https://github.com/STMicroelectronics/trusted-firmware-m.git"
+git clone https://github.com/STMicroelectronics/dt-stm32mp
+echo "cd dt-stm32mp"
+cd dt-stm32mp
+echo "git checkout ${CUBEMP2_EXT_DT_VERSION}"
+git checkout ${CUBEMP2_EXT_DT_VERSION}
+
+fi
 
 #install STM32 DDR Fw Utility
 if [[(${INSTALL_STM32DDRFW_UTIL} -eq 1)]];
@@ -363,9 +391,10 @@ echo "Categories=Development" >> ${HOME}/Desktop/st-stm32cubeMx.desktop
 
 #For adding to favorites applications
 sudo cp /$HOME/Desktop/*.desktop /usr/share/applications/
-sudo cp /usr/share/applications/st-stm32cubeide*.desktop /$HOME/Desktop/
+sudo cp /usr/share/applications/*stm32cubeide*.desktop /$HOME/Desktop/
 sudo chmod +x /usr/share/applications/ST*.desktop
 sudo chmod +x /usr/share/applications/st-*.desktop
+sudo chmod +x /$HOME/Desktop/*.desktop
 
 #!!!!!For all .desktop icones on Desktop, rightclick, 
 #and select "allow launching"

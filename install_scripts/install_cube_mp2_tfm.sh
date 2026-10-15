@@ -13,6 +13,9 @@ echo "==========================================================================
 source ../configure_OpenSTLinux_release_install.sh
 export INSTALL_TOOLS=1
 export INSTALL_CUBEMP2_TFM=1
+export INSTALL_CUBEMP2_TFM_EXT_DT=1
+
+
 #export INSTALL_VM_VERBOSE_ONLY='set -n'
 
 
