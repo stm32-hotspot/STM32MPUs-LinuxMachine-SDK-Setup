@@ -193,8 +193,11 @@ fi
 echo "unzip ${CUBEMP2_PACKAGE_NAME}"
 unzip ${CUBEMP2_PACKAGE_NAME}
 
+if [[(${CUBEMP2_VERSION_BASE} != ${CUBEMP2_VERSION})]];
+then
 echo "mv  STM32Cube_FW_MP2_V${CUBEMP2_VERSION_BASE}  STM32Cube_FW_MP2_V${CUBEMP2_VERSION}"
 mv  STM32Cube_FW_MP2_V${CUBEMP2_VERSION_BASE}  STM32Cube_FW_MP2_V${CUBEMP2_VERSION}
+fi
 
 fi
 
@@ -315,10 +318,12 @@ sudo apt-get install libusb-1.0-0
 cd ${HOME}/STMicroelectronics/STM32Cube/STM32CubeProgrammer/Drivers/rules
 sudo cp *.* /etc/udev/rules.d/
 echo " export PATH=\"${HOME}/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin:$PATH\"" >> ${HOME}/.bashrc
+INSTALL_TOOLS_DESKTOP_ICONS=1
 
 #to launch STM32CubeProgrammer UI in command line
 #	cd ~/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin
 #	./STM32CubeProgrammer
+
 fi
 
 #install STM32CubeMx
@@ -337,8 +342,11 @@ cd ${INSTALL_TOOL_DIR_NAME}/STM32CubeMx
 unzip ${CUBEMX_PACKAGE_NAME} 
 sudo chmod +x ./${CUBEMX_PACKAGE_INSTALL_SCRIPT}	
 ./${CUBEMX_PACKAGE_INSTALL_SCRIPT}
+INSTALL_TOOLS_DESKTOP_ICONS=1
+
 #to start CubeMx:
 #${HOME}/STM32CubeMX/STM32CubeMX 
+
 fi
 
 #install STM32CubeIDE
@@ -360,6 +368,7 @@ unzip ${CUBEIDE_PACKAGE_NAME}
 cd ${INSTALL_TOOL_DIR_NAME}/STM32CubeIDE
 sudo chmod +x ${CUBEIDE_PACKAGE_INSTALL_SCRIPT}
 sudo ./${CUBEIDE_PACKAGE_INSTALL_SCRIPT}
+INSTALL_TOOLS_DESKTOP_ICONS=1
 fi
 
 #to start CubeIDE:
